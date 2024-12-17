@@ -17,6 +17,14 @@ nav a:hover:not(.navbar-brand) {
   text-decoration: underline;
 }
 
+nav a.active {
+  color: #faf0f0eb !important;
+}
+
+nav a:hover {
+  color: #faf0f0eb !important;
+}
+
 .dropdown-menu.show {
   max-width: 70px !important;
 }
@@ -31,8 +39,27 @@ nav a:hover:not(.navbar-brand) {
   min-height: 600px;
 }
 
+.navbar {
+  background: #313D4A !important;
+}
+
+.hero-color {
+  background: linear-gradient(to left, #773F21, #4A2A15);
+}
+
+.color-white {
+  color: #faf0f0eb;
+}
+
+.background-blue {
+  background: linear-gradient(to bottom, #385A6B, #2C3E50);}
+
 .landing-post {
   position: relative;
+}
+
+.dropdown-toggle {
+  color: #faf0f0eb;
 }
 
 .landing-post:before {
@@ -48,6 +75,20 @@ nav a:hover:not(.navbar-brand) {
 .pet-output {
   grid-template-columns: repeat(3, 1fr);
 }
+
+/* AUTH FORM */
+
+.auth-form-image {
+  background-image: url(/images/kittens.jpg);
+}
+
+/* FOOTER */
+
+.footer {
+  background: #313D4A !important;
+}
+
+/* MEDIA QUERIES */
 
 @media (max-width: 980px) {
   .pet-output {

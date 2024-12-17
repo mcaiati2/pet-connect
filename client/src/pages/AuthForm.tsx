@@ -58,7 +58,8 @@ function AuthForm({isLogin}: {isLogin: boolean}) {
   }
 
   return (
-    <Container>
+    <div className="auth-form-image">
+      <Container>
       <Form onSubmit={handleSubmit} style={{width: '500px'}} className="mx-auto mt-5">
         <h2 className="text-center mt-3">{isLogin ? 'Log In' : 'Register'}</h2>
 
@@ -101,6 +102,7 @@ function AuthForm({isLogin}: {isLogin: boolean}) {
         </div>
       </Form>
     </Container>
+    </div>
   )
 }
 

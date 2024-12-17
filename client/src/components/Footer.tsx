@@ -4,10 +4,10 @@ function Footer() {
   const date = new Date();
 
   return (
-    <footer className="bg-light">
+    <footer className="bg-light footer">
       <Container className="d-flex justify-content-between py-5">
-        <p>Copyright &copy; {date.getFullYear()}</p>
-        <p>Dev & Design By Mike Caiati.</p>
+        <p className="color-white">Copyright &copy; {date.getFullYear()}</p>
+        <p className="color-white">Dev & Design By Mike Caiati</p>
       </Container>
     </footer>
   )

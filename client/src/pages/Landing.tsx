@@ -11,13 +11,14 @@ function Landing() {
     <Container fluid={true}>
       <Row>
         <Col className="landing-hero-image" xs="12" md="6"></Col>
-        <Col className="d-flex flex-column justify-content-center hero-text" xs="12" md="6">
-          <h1 className="text-center">Pet-Connect</h1>
-          <h3 className="text-center fw-light">The fun hangout where your pets can socialize!</h3>
+        <Col className="d-flex flex-column justify-content-center hero-text hero-color" xs="12" md="6">
+          <h1 className="text-center color-white fw-lighter">Pet-Connect</h1>
+          <h3 className="text-center color-white fst-italic fw-lighter">The fun hangout where your pets can socialize!</h3>
         </Col>
       </Row>
 
       <Container>
+        
         <h3 className="fw-light mt-5">See what pets are saying!</h3>
         <hr />
 
