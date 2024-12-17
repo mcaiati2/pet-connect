@@ -1,13 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
+import { useMutation } from '@apollo/client';
+import { useNavigate } from 'react-router-dom';
+import { useStore } from '../store';
+import { REGISTER_USER, LOGIN_USER } from '../graphql/mutations';
+
+const initialFormData = {
+  username: '',
+  email: '',
+  password: '',
+  errorMessage: ''
+};
 
 function AuthForm({ isLogin }: { isLogin: boolean }) {
-  const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: '',
-    errorMessage: ''
-  });
+  const [formData, setFormData] = useState(initialFormData);
+  const [registerUser] = useMutation(REGISTER_USER);
+  const [loginUser] = useMutation(LOGIN_USER);
+  const { setState } = useStore()!;
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setFormData({ ...initialFormData });
+  }, [isLogin]);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -16,13 +30,32 @@ function AuthForm({ isLogin }: { isLogin: boolean }) {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Handle form submission logic here
+    const mutation = isLogin ? loginUser : registerUser;
+    const prop = isLogin ? 'loginUser' : 'registerUser';
+
+    try {
+      const res = await mutation({
+        variables: formData
+      });
+
+      setState((oldState) => ({
+        ...oldState,
+        user: res.data[prop].user
+      }));
+
+      navigate('/dashboard');
+    } catch (error: any) {
+      setFormData({
+        ...formData,
+        errorMessage: error.message
+      });
+    }
   };
 
   return (
-    <div className="auth-form-image" style={{ minHeight: '100vh', display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
+    <div className="auth-form-image" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <div className="overlay">
-        <Container className="form-wrapper">
+        <Container>
           <div className="form-wrapper">
             <Form onSubmit={handleSubmit} style={{ width: '500px' }} className="mx-auto mb-3">
               <h2 className="text-center mt-3">{isLogin ? 'Log In' : 'Register'}</h2>
