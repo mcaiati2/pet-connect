@@ -7,7 +7,7 @@ import { LOGOUT_USER } from '../graphql/mutations';
 import { client } from '../main';
 
 function Header() {
-  const {state, setState} = useStore()!;
+  const { state, setState } = useStore()!;
   const [logoutUser] = useMutation(LOGOUT_USER, {
     onCompleted() {
       client.clearStore();
@@ -31,7 +31,10 @@ function Header() {
   return (
     <Navbar bg="light" data-bs-theme="light">
       <Container className="nav-wrap">
-        <Navbar.Brand as={NavLink} to="/" className="color-white">Pet-Connect</Navbar.Brand>
+        <Navbar.Brand as={NavLink} to="/" className="d-flex align-items-center">
+          <img src="/favicon.ico" alt="Favicon" width="30" height="30" className="me-2" />
+          <span className="color-white">Pet-Connect</span>
+        </Navbar.Brand>
         <Nav className="ms-auto">
           <Nav.Link as={NavLink} to="/" className="color-white">Home</Nav.Link>
 
