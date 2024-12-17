@@ -124,6 +124,52 @@ nav a:hover {
   margin-top: 0; /* Remove any margin at the top */
 }
 
+/* DASHBOARD */
+
+.dashboard {
+  background-image: url('/images/cartoon-house.png');
+  background-size: cover; /* Adjust background size to cover the container */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Ensure the background image does not repeat */
+  height: 100vh; 
+  width: 100vw; 
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+  padding-top: 10px; 
+}
+
+.dashboard .overlay {
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.pet-list-item {
+  background: rgba(255, 255, 255, 0.1); /* increase to .2 to make darker, etc */
+}
+
+/* Alternate white dashboard overlay */
+/* .dashboard .overlay {
+  background: rgba(255, 255, 255, 0.8); 
+  width: 80%; 
+  max-width: 1200px;
+  height: auto;
+  max-height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+} */
+
+.dashboard .overlay .container {
+  color: #000; 
+}
 
 /* FOOTER */
 
